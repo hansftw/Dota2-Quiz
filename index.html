@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <style type="text/css">
+        td{
+            text-align: center;
+        }
+        .button {   
+            height: 110px; 
+            width: 110px; 
+            background-color: #111;
+            border: solid;
+            border-width:  1px;
+            border-color: white;
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+        }
+        .pic {
+            text-align: center;
+            display: inline-block;
+            padding: 20px;
+            object-fit: cover;
+            height: 100%;
+        }
+        .head {
+            height: 110px;
+            width: 250px;
+        }
+        .correct {
+            color: white;
+            height: 30px;
+            font-size: 32px;
+            text-align: center;
+            padding: 15px 10px;
+        }
+        .body{
+            background-color: #111;     
+            margin-left: auto;
+            margin-right: auto;
+            width: 16em;
+            padding-top: 6em;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body">
+    <table>
+        <tr>
+            <th colspan="2" class="head">
+                <img class="pic" id="img" src="/images/heroes/npc_dota_hero_alchemist_png.png">
+            </th>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p class="correct" id="t1"></p>
+            </td>
+        </tr>
+        <tr>            
+            <td>
+                <button class="button" id="bu1" onclick="b1(this.id)"></button>
+            </td>
+            <td>
+                <button class="button" id="bu2" onclick="b1(this.id)"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="button" id="bu3" onclick="b1(this.id)"></button>
+            </td>
+            <td>
+                <button class="button" id="bu4" onclick="b1(this.id)"></button>
+            </td>
+        </tr>
+    </table>
+<script>  
+var a = "";
+go();
+
+function go(){
+    const hero_id_names = ["npc_dota_hero_antimage","npc_dota_hero_axe","npc_dota_hero_bane","npc_dota_hero_bloodseeker","npc_dota_hero_crystal_maiden","npc_dota_hero_drow_ranger","npc_dota_hero_earthshaker","npc_dota_hero_juggernaut","npc_dota_hero_mirana","npc_dota_hero_morphling","npc_dota_hero_nevermore","npc_dota_hero_phantom_lancer","npc_dota_hero_puck","npc_dota_hero_pudge","npc_dota_hero_razor","npc_dota_hero_sand_king","npc_dota_hero_storm_spirit","npc_dota_hero_sven","npc_dota_hero_tiny","npc_dota_hero_vengefulspirit","npc_dota_hero_windrunner","npc_dota_hero_zuus","npc_dota_hero_kunkka","npc_dota_hero_lina","npc_dota_hero_lion","npc_dota_hero_shadow_shaman","npc_dota_hero_slardar","npc_dota_hero_tidehunter","npc_dota_hero_witch_doctor","npc_dota_hero_lich","npc_dota_hero_riki","npc_dota_hero_enigma","npc_dota_hero_tinker","npc_dota_hero_sniper","npc_dota_hero_necrolyte","npc_dota_hero_warlock","npc_dota_hero_beastmaster","npc_dota_hero_queenofpain","npc_dota_hero_venomancer","npc_dota_hero_faceless_void","npc_dota_hero_skeleton_king","npc_dota_hero_death_prophet","npc_dota_hero_phantom_assassin","npc_dota_hero_pugna","npc_dota_hero_templar_assassin","npc_dota_hero_viper","npc_dota_hero_luna","npc_dota_hero_dragon_knight","npc_dota_hero_dazzle","npc_dota_hero_rattletrap","npc_dota_hero_leshrac","npc_dota_hero_furion","npc_dota_hero_life_stealer","npc_dota_hero_dark_seer","npc_dota_hero_clinkz","npc_dota_hero_omniknight","npc_dota_hero_enchantress","npc_dota_hero_huskar","npc_dota_hero_night_stalker","npc_dota_hero_broodmother","npc_dota_hero_bounty_hunter","npc_dota_hero_weaver","npc_dota_hero_jakiro","npc_dota_hero_batrider","npc_dota_hero_chen","npc_dota_hero_spectre","npc_dota_hero_ancient_apparition","npc_dota_hero_doom_bringer","npc_dota_hero_ursa","npc_dota_hero_spirit_breaker","npc_dota_hero_gyrocopter","npc_dota_hero_alchemist","npc_dota_hero_invoker","npc_dota_hero_silencer","npc_dota_hero_obsidian_destroyer","npc_dota_hero_lycan","npc_dota_hero_brewmaster","npc_dota_hero_shadow_demon","npc_dota_hero_lone_druid","npc_dota_hero_chaos_knight","npc_dota_hero_meepo","npc_dota_hero_treant","npc_dota_hero_ogre_magi","npc_dota_hero_undying","npc_dota_hero_rubick","npc_dota_hero_disruptor","npc_dota_hero_nyx_assassin","npc_dota_hero_naga_siren","npc_dota_hero_keeper_of_the_light","npc_dota_hero_wisp","npc_dota_hero_visage","npc_dota_hero_slark","npc_dota_hero_medusa","npc_dota_hero_troll_warlord","npc_dota_hero_centaur","npc_dota_hero_magnataur","npc_dota_hero_shredder","npc_dota_hero_bristleback","npc_dota_hero_tusk","npc_dota_hero_skywrath_mage","npc_dota_hero_abaddon","npc_dota_hero_elder_titan","npc_dota_hero_legion_commander","npc_dota_hero_techies","npc_dota_hero_ember_spirit","npc_dota_hero_earth_spirit","npc_dota_hero_abyssal_underlord","npc_dota_hero_terrorblade","npc_dota_hero_phoenix","npc_dota_hero_oracle","npc_dota_hero_winter_wyvern","npc_dota_hero_arc_warden","npc_dota_hero_monkey_king","npc_dota_hero_dark_willow","npc_dota_hero_pangolier","npc_dota_hero_grimstroke","npc_dota_hero_hoodwink","npc_dota_hero_void_spirit","npc_dota_hero_snapfire","npc_dota_hero_mars","npc_dota_hero_dawnbreaker"];
+    const hero_names = ["Anti-Mage","Axe","Bane","Bloodseeker","Crystal Maiden","Drow Ranger","Earthshaker","Juggernaut","Mirana","Morphling","Shadow Fiend","Phantom Lancer","Puck","Pudge","Razor","Sand King","Storm Spirit","Sven","Tiny","Vengeful Spirit","Windranger","Zeus","Kunkka","Lina","Lion","Shadow Shaman","Slardar","Tidehunter","Witch Doctor","Lich","Riki","Enigma","Tinker","Sniper","Necrophos","Warlock","Beastmaster","Queen of Pain","Venomancer","Faceless Void","Wraith King","Death Prophet","Phantom Assassin","Pugna","Templar Assassin","Viper","Luna","Dragon Knight","Dazzle","Clockwerk","Leshrac","Nature's Prophet","Lifestealer","Dark Seer","Clinkz","Omniknight","Enchantress","Huskar","Night Stalker","Broodmother","Bounty Hunter","Weaver","Jakiro","Batrider","Chen","Spectre","Ancient Apparition","Doom","Ursa","Spirit Breaker","Gyrocopter","Alchemist","Invoker","Silencer","Outworld Devourer","Lycan","Brewmaster","Shadow Demon","Lone Druid","Chaos Knight","Meepo","Treant Protector","Ogre Magi","Undying","Rubick","Disruptor","Nyx Assassin","Naga Siren","Keeper of the Light","Io","Visage","Slark","Medusa","Troll Warlord","Centaur Warrunner","Magnus","Timbersaw","Bristleback","Tusk","Skywrath Mage","Abaddon","Elder Titan","Legion Commander","Techies","Ember Spirit","Earth Spirit","Underlord","Terrorblade","Phoenix","Oracle","Winter Wyvern","Arc Warden","Monkey King","Dark Willow","Pangolier","Grimstroke","Hoodwink","Void Spirit","Snapfire","Mars","Dawnbreaker"];
+    const item_id_names = ["blink","overwhelming_blink","swift_blink","arcane_blink","blades_of_attack","broadsword","chainmail","claymore","helm_of_iron_will","javelin","mithril_hammer","platemail","quarterstaff","quelling_blade","faerie_fire","infused_raindrop","wind_lace","ring_of_protection","moon_shard","gauntlets","slippers","mantle","branches","belt_of_strength","boots_of_elves","robe","circlet","crown","ogre_axe","blade_of_alacrity","staff_of_wizardry","ultimate_orb","gloves","blitz_knuckles","lifesteal","voodoo_mask","ring_of_regen","sobi_mask","boots","gem","cloak","talisman_of_evasion","cheese","magic_stick","magic_wand","ghost","clarity","enchanted_mango","flask","dust","bottle","ward_observer","ward_sentry","ward_dispenser","tango","tango_single","courier","flying_courier","tpscroll","travel_boots","travel_boots_2","phase_boots","demon_edge","eagle","reaver","relic","hyperstone","ring_of_health","void_stone","mystic_staff","energy_booster","point_booster","vitality_booster","fluffy_hat","power_treads","hand_of_midas","oblivion_staff","witch_blade","pers","bracer","wraith_band","null_talisman","mekansm","vladmir","buckler","ring_of_basilius","holy_locket","pipe","urn_of_shadows","headdress","sheepstick","orchid","bloodthorn","echo_sabre","cyclone","wind_waker","aether_lens","force_staff","hurricane_pike","dagon","dagon_2","dagon_3","dagon_4","dagon_5","ultimate_scepter","ultimate_scepter_2","ultimate_scepter_roshan","aghanims_shard","aghanims_shard_roshan","refresher","assault","heart","black_king_bar","aegis","shivas_guard","bloodstone","sphere","lotus_orb","meteor_hammer","nullifier","aeon_disk","kaya","refresher_shard","spirit_vessel","vanguard","crimson_guard","blade_mail","soul_booster","hood_of_defiance","eternal_shroud","rapier","monkey_king_bar","radiance","butterfly","greater_crit","basher","bfury","manta","lesser_crit","dragon_lance","armlet","invis_sword","silver_edge","sange_and_yasha","kaya_and_sange","yasha_and_kaya","satanic","mjollnir","skadi","sange","helm_of_the_dominator","helm_of_the_overlord","maelstrom","gungir","desolator","yasha","mask_of_madness","diffusal_blade","ethereal_blade","soul_ring","arcane_boots","octarine_core","orb_of_venom","blight_stone","orb_of_corrosion","falcon_blade","mage_slayer","ancient_janggo","medallion_of_courage","solar_crest","smoke_of_deceit","tome_of_knowledge","veil_of_discord","guardian_greaves","rod_of_atos","abyssal_blade","heavens_halberd","tranquil_boots","shadow_amulet","glimmer_cape","mutation_tombstone","super_blink","pocket_tower","pocket_roshan"];
+    
+    var mode = Math.floor(Math.random() * 2);   
+    var length = (mode === 0) ? hero_names.length : item_id_names.length
+    var aa = Math.floor(Math.random() * length)
+    
+    if (mode === 0){
+        a = hero_names[aa];
+        document.getElementById("img").src = "/images/heroes/" + hero_id_names[aa] + "_png.png";
+    }
+    else{        
+        a = item_id_names[aa];
+        document.getElementById("img").src = "/images/items/" + item_id_names[aa] + "_png.png";
+    }
+
+    var b = [a];
+    for (let i = 0; i < 3; i++) {    
+        var c = a;        
+        while (b.includes(c))
+            c = (mode === 0) ? hero_names[Math.floor(Math.random() * length)] : item_id_names[Math.floor(Math.random() * length)];            
+        b.push(c)
+    }
+
+    var d = [];        
+    while (b.length > 0) {
+        var e = Math.floor(Math.random() * b.length);
+        d.push(b[e]);
+        b.splice(e,1);
+    }
+
+    for (let i = 0; i < 4; i++) { 
+        document.getElementById("bu" + (i + 1)).innerText = d[i];
+    }    
+}
+
+async function b1(cid) 
+{
+    var f = document.getElementById(cid).innerText;
+    if (f === a) {
+        document.getElementById("t1").innerHTML = "correct";
+        document.getElementById("t1").style.color="green";
+        await sleep(750);               
+        document.getElementById("t1").innerHTML = "";
+        go();
+    }
+    else {
+        document.getElementById("t1").innerHTML = "wrong";
+        document.getElementById("t1").style.color="red";
+        await sleep(750);               
+            document.getElementById("t1").innerHTML = "";
+    }
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>
+</body>
+</html>
