@@ -126,30 +126,30 @@ function go(){
         answer = item_names[tree[index]];
     }
 
-    var b = [answer];
+    var options = [answer];
 
     for (let i = 0; i < 3; i++) {    
-        var c = answer;        
-        while (b.includes(c)){
+        var newOption = answer;        
+        while (options.includes(newOption)){
             var r = Math.floor(Math.random() * length);
-            c = (mode === 0) ? hero_names[r] : item_names[quizItems[r]];            
+            newOption = (mode === 0) ? hero_names[r] : item_names[quizItems[r]];            
             if (mode === 2 && comp[tree[index]].includes(r))
-                c == answer;   
+                newOption == answer;   
         }
-        b.push(c)
+        options.push(newOption)
     }
 
-    var d = [];        
-    while (b.length > 0) {
-        var e = Math.floor(Math.random() * b.length);
-        d.push(b[e]);
-        b.splice(e,1);
+    var Final = [];        
+    while (options.length > 0) {
+        var e = Math.floor(Math.random() * options.length);
+        Final.push(options[e]);
+        options.splice(e,1);
     }
 
     for (let i = 0; i < 4; i++) { 
-        document.getElementById("bu" + (i + 1)).innerText = d[i];
+        document.getElementById("bu" + (i + 1)).innerText = Final[i];
         if (mode === 2)
-            document.getElementById("bu" + (i + 1)).name = d[i];
+            document.getElementById("bu" + (i + 1)).name = Final[i];
     }    
 }
 
