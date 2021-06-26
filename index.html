@@ -41,6 +41,13 @@
             margin-right: auto;
             width: 16em;
             padding-top: 6em;
+        }        
+        .question {
+            color: white;
+            height: 30px;
+            font-size: 16px;
+            text-align: center;
+            padding: 15px 10px;
         }
     </style>
     <meta charset="UTF-8">
@@ -50,6 +57,11 @@
 </head>
 <body class="body">
     <table>
+        <tr>
+            <td colspan="2">
+                <p class="question" id="t3"></p>
+            </td>
+        </tr>
         <tr>
             <th colspan="2" class="head">
                 <img class="pic" id="img" src="../images/heroes/npc_dota_hero_alchemist_png.png">
@@ -90,22 +102,30 @@ function go(){
     const item_names = ["Blink Dagger","Overwhelming Blink","Swift Blink","Arcane Blink","Blades of Attack","Broadsword","Chainmail","Claymore","Helm of Iron Will","Javelin","Mithril Hammer","Platemail","Quarterstaff","Quelling Blade","Faerie Fire","Infused Raindrops","Wind Lace","Ring of Protection","Moon Shard","Gauntlets of Strength","Slippers of Agility","Mantle of Intelligence","Iron Branch","Belt of Strength","Band of Elvenskin","Robe of the Magi","Circlet","Crown","Ogre Axe","Blade of Alacrity","Staff of Wizardry","Ultimate Orb","Gloves of Haste","Blitz Knuckles","Morbid Mask","Voodoo Mask","Ring of Regen","Sage's Mask","Boots of Speed","Gem of True Sight","Cloak","Talisman of Evasion","Cheese","Magic Stick","Magic Wand","Ghost Scepter","Clarity","Enchanted Mango","Healing Salve","Dust of Appearance","Bottle","Observer Ward","Sentry Ward","Observer and Sentry Wards","Tango","Tango (Shared)","Animal Courier","Flying Courier","Town Portal Scroll","Boots of Travel","Boots of Travel 2","Phase Boots","Demon Edge","Eaglesong","Reaver","Sacred Relic","Hyperstone","Ring of Health","Void Stone","Mystic Staff","Energy Booster","Point Booster","Vitality Booster","Fluffy Hat","Power Treads","Hand of Midas","Oblivion Staff","Witch Blade","Perseverance","Bracer","Wraith Band","Null Talisman","Mekansm","Vladmir's Offering","Buckler","Ring of Basilius","Holy Locket","Pipe of Insight","Urn of Shadows","Headdress","Scythe of Vyse","Orchid Malevolence","Bloodthorn","Echo Sabre","Eul's Scepter of Divinity","Wind Waker","Aether Lens","Force Staff","Hurricane Pike","Dagon","Dagon","Dagon","Dagon","Dagon","Aghanim's Scepter","Aghanim's Blessing","Aghanim's Blessing - Roshan","Aghanim's Shard","Aghanim's Shard - Roshan","Refresher Orb","Assault Cuirass","Heart of Tarrasque","Black King Bar","Aegis of the Immortal","Shiva's Guard","Bloodstone","Linken's Sphere","Lotus Orb","Meteor Hammer","Nullifier","Aeon Disk","Kaya","Refresher Shard","Spirit Vessel","Vanguard","Crimson Guard","Blade Mail","Soul Booster","Hood of Defiance","Eternal Shroud","Divine Rapier","Monkey King Bar","Radiance","Butterfly","Daedalus","Skull Basher","Battle Fury","Manta Style","Crystalys","Dragon Lance","Armlet of Mordiggian","Shadow Blade","Silver Edge","Sange and Yasha","Kaya and Sange","Yasha and Kaya","Satanic","Mjollnir","Eye of Skadi","Sange","Helm of the Dominator","Helm of the Overlord","Maelstrom","Gleipnir","Desolator","Yasha","Mask of Madness","Diffusal Blade","Ethereal Blade","Soul Ring","Arcane Boots","Octarine Core","Orb of Venom","Blight Stone","Orb of Corrosion","Falcon Blade","Mage Slayer","Drum of Endurance","Medallion of Courage","Solar Crest","Smoke of Deceit","Tome of Knowledge","Veil of Discord","Guardian Greaves","Rod of Atos","Abyssal Blade","Heaven's Halberd","Tranquil Boots","Shadow Amulet","Glimmer Cape","Tombstone","Super Blink Dagger","Pocket Tower","Pocket Roshan"];
     const comp = [[0,64],[0,63],[0,69],[66],[43,22],[52,51],[38],[59],[38,6,4],[38,32,23],[32],[12,37,25],[33,25,6],[67,68],[26,19],[26,20],[26,21],[89,6],[84,85,34,4],[17],[37],[89,73,70,44],[128,89],[37,26,17],[36],[69,31,68],[76],[91,66],[28,76],[30,68,16],[94,69],[70,68],[30,73],[97,139],[30,27],[71,30,28,29],[104],[78],[11,66,84],[72,64],[28,10],[11,69],[35,121,127],[31,78],[78,11,70],[78,27],[65,8],[72,70],[30,25],[88,72],[67,72],[124,8],[5,6],[72,70,71],[67,40,36],[35,128],[65,62],[62,9,33],[65],[63,41,12],[138,62],[10,23],[5,7,78,13],[155,31],[5,4],[28,24],[8,32,4],[178,33,5],[141,76],[155,149],[149,121],[121,155],[34,7,64],[152,66],[31,71],[28,23],[8,27],[150,31],[10,9],[152,174],[10,163],[29,24],[34,12],[29,25],[63,45],[17,19],[38,70],[96,127],[162,163,73],[73,37,4],[40,29,7],[23,25,16],[6,37,163],[168,27,16],[85,27],[82,160,84],[30,27],[135,124],[149,41],[38,16,36],[178,40]];
     
-    mode = Math.floor(Math.random() * 3);   
+    console.log(item_names.length);
+    console.log(comp.length);
+
+    mode = 2;//Math.floor(Math.random() * 3);   
     var length = (mode === 0) ? hero_names.length : item_id_names.length
     var aa = Math.floor(Math.random() * length)
     
     if (mode === 0) {
+        document.getElementById("t3").innerHTML = "This Hero's name is...";
         a = hero_names[aa];
         document.getElementById("img").src = "./images/heroes/" + hero_id_names[aa] + "_png.png";
     }
     else{        
+        document.getElementById("t3").innerHTML = "This Item's name is...";
         a = item_names[aa];
         document.getElementById("img").src = "./images/items/" + item_id_names[aa] + "_png.png";
     }
 
+    if (mode === 2){
+        document.getElementById("t3").innerHTML = "This is a component of...";
+        a = item_names[comp[aa][Math.floor(Math.random() * comp[aa].length)]];
+    }
+
     var b = [a];
-    if (mode === 2)
-        b = item_names[comp[Math.floor(Math.random() * [aa].length)]];
 
     for (let i = 0; i < 3; i++) {    
         var c = a;        
