@@ -1,6 +1,27 @@
 <html lang="en">
 <head>
     <style type="text/css">
+        label {
+            color: white;
+            font-size: 22px;
+            text-align: right;
+        }
+        input{
+            height: 35px;
+            width: 35px;
+            text-align: left;
+        }
+        .hi{
+            display: none;
+        }
+        #openBtn{
+            color: white;
+            display: table-row;
+        }
+        #closeBtn{
+            color: white;
+            display: none;
+        }
         td{
             text-align: center;
         }
@@ -12,7 +33,6 @@
             border-width:  1px;
             border-color: white;
             color: white;
-            padding: 15px 10px;
             text-align: center;
             display: inline-block;
             font-size: 16px;
@@ -26,26 +46,26 @@
         }
         .head {
             height: 110px;
-            width: 250px;
+            width: 275px;
         }
         .correct {
             color: white;
             height: 30px;
             font-size: 32px;
             text-align: center;
-            padding: 15px 10px;
+            padding: 10px 10px;
         }
         .body{
             background-color: #111;     
             margin-left: auto;
             margin-right: auto;
-            width: 16em;
+            width: 17em;
             padding-top: 6em;
         }        
         .question {
             color: white;
             height: 30px;
-            font-size: 16px;
+            font-size: 20px;
             text-align: center;
             padding: 15px 10px;
         }
@@ -57,15 +77,40 @@
 </head>
 <body class="body">
     <table>
+        <tr id="openBtn" onclick="openMenu()">
+            <td colspan="2">
+                <p class="menu" style="height: 40px;text-align: left; font-size: 25;">&#128295;</p> 
+            </td>
+        </tr>        
+        <tr id="closeBtn" onclick="closeMenu()">
+            <td colspan="2">
+                <p class="menu" style="height: 40px; text-align: right; font-size: 25">✕</p>
+            </td>
+        </tr>
+        <tr id="hi1" class="hi">
+            <td><input type="checkbox" id="cb1" checked></td><td><label for="cb1">Heroes</label></td>
+        </tr>
+        <tr id="hi2" class="hi">
+            <td><input type="checkbox" id="cb2" checked></td><td><label for="cb2">Items</label></td>
+        </tr>
+        <tr id="hi3" class="hi">
+            <td><input type="checkbox" id="cb3" checked></td><td><label for="cb3">Neutrals</label></td>
+        </tr>
+        <tr id="hi4" class="hi">
+            <td><input type="checkbox" id="cb4" checked></td><td><label for="cb4">Builds to</label></td>
+        </tr>
+        <!-- <tr id="hi5" class="hi">
+            <td><input type="checkbox" id="cb5" checked></td><td><label for="cb5">Components of</label></td>
+        </tr>         -->
+        <tr>
+            <th colspan="2" class="head">
+                <img class="pic" id="img" src="">
+            </th>
+        </tr>
         <tr>
             <td colspan="2">
                 <p class="question" id="t3"></p>
             </td>
-        </tr>
-        <tr>
-            <th colspan="2" class="head">
-                <img class="pic" id="img" src="../images/heroes/npc_dota_hero_alchemist_png.png">
-            </th>
         </tr>
         <tr>
             <td colspan="2">
@@ -81,10 +126,10 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="padding-top: 10px;">
                 <button class="button" id="bu3" onclick="b1(this.id)"></button>
             </td>
-            <td>
+            <td style="padding-top: 10px;">
                 <button class="button" id="bu4" onclick="b1(this.id)"></button>
             </td>
         </tr>
@@ -94,7 +139,7 @@
 var answer = "";
 var mode = 0;
 go();
-
+//☰
 function go(){
     const hero_id_names = ["npc_dota_hero_antimage","npc_dota_hero_axe","npc_dota_hero_bane","npc_dota_hero_bloodseeker","npc_dota_hero_crystal_maiden","npc_dota_hero_drow_ranger","npc_dota_hero_earthshaker","npc_dota_hero_juggernaut","npc_dota_hero_mirana","npc_dota_hero_morphling","npc_dota_hero_nevermore","npc_dota_hero_phantom_lancer","npc_dota_hero_puck","npc_dota_hero_pudge","npc_dota_hero_razor","npc_dota_hero_sand_king","npc_dota_hero_storm_spirit","npc_dota_hero_sven","npc_dota_hero_tiny","npc_dota_hero_vengefulspirit","npc_dota_hero_windrunner","npc_dota_hero_zuus","npc_dota_hero_kunkka","npc_dota_hero_lina","npc_dota_hero_lion","npc_dota_hero_shadow_shaman","npc_dota_hero_slardar","npc_dota_hero_tidehunter","npc_dota_hero_witch_doctor","npc_dota_hero_lich","npc_dota_hero_riki","npc_dota_hero_enigma","npc_dota_hero_tinker","npc_dota_hero_sniper","npc_dota_hero_necrolyte","npc_dota_hero_warlock","npc_dota_hero_beastmaster","npc_dota_hero_queenofpain","npc_dota_hero_venomancer","npc_dota_hero_faceless_void","npc_dota_hero_skeleton_king","npc_dota_hero_death_prophet","npc_dota_hero_phantom_assassin","npc_dota_hero_pugna","npc_dota_hero_templar_assassin","npc_dota_hero_viper","npc_dota_hero_luna","npc_dota_hero_dragon_knight","npc_dota_hero_dazzle","npc_dota_hero_rattletrap","npc_dota_hero_leshrac","npc_dota_hero_furion","npc_dota_hero_life_stealer","npc_dota_hero_dark_seer","npc_dota_hero_clinkz","npc_dota_hero_omniknight","npc_dota_hero_enchantress","npc_dota_hero_huskar","npc_dota_hero_night_stalker","npc_dota_hero_broodmother","npc_dota_hero_bounty_hunter","npc_dota_hero_weaver","npc_dota_hero_jakiro","npc_dota_hero_batrider","npc_dota_hero_chen","npc_dota_hero_spectre","npc_dota_hero_ancient_apparition","npc_dota_hero_doom_bringer","npc_dota_hero_ursa","npc_dota_hero_spirit_breaker","npc_dota_hero_gyrocopter","npc_dota_hero_alchemist","npc_dota_hero_invoker","npc_dota_hero_silencer","npc_dota_hero_obsidian_destroyer","npc_dota_hero_lycan","npc_dota_hero_brewmaster","npc_dota_hero_shadow_demon","npc_dota_hero_lone_druid","npc_dota_hero_chaos_knight","npc_dota_hero_meepo","npc_dota_hero_treant","npc_dota_hero_ogre_magi","npc_dota_hero_undying","npc_dota_hero_rubick","npc_dota_hero_disruptor","npc_dota_hero_nyx_assassin","npc_dota_hero_naga_siren","npc_dota_hero_keeper_of_the_light","npc_dota_hero_wisp","npc_dota_hero_visage","npc_dota_hero_slark","npc_dota_hero_medusa","npc_dota_hero_troll_warlord","npc_dota_hero_centaur","npc_dota_hero_magnataur","npc_dota_hero_shredder","npc_dota_hero_bristleback","npc_dota_hero_tusk","npc_dota_hero_skywrath_mage","npc_dota_hero_abaddon","npc_dota_hero_elder_titan","npc_dota_hero_legion_commander","npc_dota_hero_techies","npc_dota_hero_ember_spirit","npc_dota_hero_earth_spirit","npc_dota_hero_abyssal_underlord","npc_dota_hero_terrorblade","npc_dota_hero_phoenix","npc_dota_hero_oracle","npc_dota_hero_winter_wyvern","npc_dota_hero_arc_warden","npc_dota_hero_monkey_king","npc_dota_hero_dark_willow","npc_dota_hero_pangolier","npc_dota_hero_grimstroke","npc_dota_hero_hoodwink","npc_dota_hero_void_spirit","npc_dota_hero_snapfire","npc_dota_hero_mars","npc_dota_hero_dawnbreaker"];
     const hero_names = ["Anti-Mage","Axe","Bane","Bloodseeker","Crystal Maiden","Drow Ranger","Earthshaker","Juggernaut","Mirana","Morphling","Shadow Fiend","Phantom Lancer","Puck","Pudge","Razor","Sand King","Storm Spirit","Sven","Tiny","Vengeful Spirit","Windranger","Zeus","Kunkka","Lina","Lion","Shadow Shaman","Slardar","Tidehunter","Witch Doctor","Lich","Riki","Enigma","Tinker","Sniper","Necrophos","Warlock","Beastmaster","Queen of Pain","Venomancer","Faceless Void","Wraith King","Death Prophet","Phantom Assassin","Pugna","Templar Assassin","Viper","Luna","Dragon Knight","Dazzle","Clockwerk","Leshrac","Nature's Prophet","Lifestealer","Dark Seer","Clinkz","Omniknight","Enchantress","Huskar","Night Stalker","Broodmother","Bounty Hunter","Weaver","Jakiro","Batrider","Chen","Spectre","Ancient Apparition","Doom","Ursa","Spirit Breaker","Gyrocopter","Alchemist","Invoker","Silencer","Outworld Devourer","Lycan","Brewmaster","Shadow Demon","Lone Druid","Chaos Knight","Meepo","Treant Protector","Ogre Magi","Undying","Rubick","Disruptor","Nyx Assassin","Naga Siren","Keeper of the Light","Io","Visage","Slark","Medusa","Troll Warlord","Centaur Warrunner","Magnus","Timbersaw","Bristleback","Tusk","Skywrath Mage","Abaddon","Elder Titan","Legion Commander","Techies","Ember Spirit","Earth Spirit","Underlord","Terrorblade","Phoenix","Oracle","Winter Wyvern","Arc Warden","Monkey King","Dark Willow","Pangolier","Grimstroke","Hoodwink","Void Spirit","Snapfire","Mars","Dawnbreaker"];
@@ -105,7 +150,22 @@ function go(){
     const tree = [1,2,3,18,44,53,59,60,61,74,75,76,77,78,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,106,107,111,112,113,114,116,117,118,119,120,121,122,123,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,166,167,168,169,170,171,174,175,176,178,179,181,183];
     const comp = [,[0,64],[0,63],[0,69],,,,,,,,,,,,,,,[66],,,,,,,,,,,,,,,,,,,,,,,,,,[43,22],,,,,,,,,[52,51],,,,,,[38],[59,-1],[38,6,4],,,,,,,,,,,,,[38,32,23],[32],[12,37,25],[33,25,6],[67,68],,,[26,19],[26,20],[26,21],[91,6],[86,87,34,4],[17],[37],[91,73,70,44],[130,91],[37,26,17],[36],[69,31,68],[76],[93,66],[28,76],[30,68,16],[96,69],[70,68],[30,73],[99,141],[30,27],,,,,[71,30,28,29],[106],,,,[78],[11,66,86],[72,64],[28,10],,[11,69],[35,123,129],[31,78],[78,11,70],[78,27],[65,8],[72,70],[30,25],,[90,72],[67,72],[126,8],[5,6],[72,70,71],[67,40,36],[35,130],[65,62],[62,9,33],[65],[63,41,12],[140,62],[10,23],[5,7,78,13],[157,31],[5,4],[28,24],[8,32,4],[182,33,5],[143,76],[157,151],[151,123],[123,157],[34,7,64],[154,66],[31,71],[28,23],[8,27],[152,31],[10,9],[154,176],[10,165],[29,24],[34,12],[29,25],[63,45],[17,19],[38,70],[98,129],,,[164,165,73],[73,37,4],[40,29,7],[23,25,16],[6,37,165],[170,27,16],,,[87,27],[84,162,86],[30,27],,[137,126],[151,41],,[38,16,36],,[182,40],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,];
 
-    mode = Math.floor(Math.random() * 4);   
+    document.getElementById("bu1").style.borderColor="white";
+    document.getElementById("bu2").style.borderColor="white";
+    document.getElementById("bu3").style.borderColor="white";
+    document.getElementById("bu4").style.borderColor="white";
+
+    var check = [];
+    if (document.getElementById("cb1").checked) check.push(0);    
+    if (document.getElementById("cb2").checked) check.push(1);
+    if (document.getElementById("cb3").checked) check.push(3);
+    if (document.getElementById("cb4").checked) check.push(2);
+    //if (document.getElementById("cb5").checked) check.push(4);
+
+    mode = -1;
+    while (!check.includes(mode))
+        mode =  Math.floor(Math.random() * 4);   
+        
     var length = (mode === 0) ? hero_names.length : (mode === 1) ? quizItems.length : (mode === 2) ? tree.length : neutrals.length;
     var index = Math.floor(Math.random() * length)
     
@@ -120,7 +180,7 @@ function go(){
         answer = item_names[quizItems[index]];
     }
     else if (mode === 2){
-        document.getElementById("t3").innerHTML = "This is a component of...";
+        document.getElementById("t3").innerHTML = "This Item builds to...";
         var rng = Math.floor(Math.random() * comp[tree[index]].length)
         document.getElementById("img").src = "./images/items/" + item_id_names[comp[tree[index]][rng]] + "_png.png";
         answer = item_names[tree[index]];
@@ -160,6 +220,7 @@ async function b1(cid)
     if (f === answer) {
         document.getElementById("t1").innerHTML = "correct";
         document.getElementById("t1").style.color="green";
+        document.getElementById(cid).style.borderColor="green";
         await sleep(750);               
         document.getElementById("t1").innerHTML = "";
         go();
@@ -167,6 +228,7 @@ async function b1(cid)
     else {
         document.getElementById("t1").innerHTML = "wrong";
         document.getElementById("t1").style.color="red";
+        document.getElementById(cid).style.borderColor="red";
         await sleep(750);               
             document.getElementById("t1").innerHTML = "";
     }
@@ -174,6 +236,26 @@ async function b1(cid)
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function openMenu(){
+    document.getElementById("openBtn").style.display="none";    
+    document.getElementById("closeBtn").style.display="table-row";
+    document.getElementById("hi1").style.display="table-row";
+    document.getElementById("hi2").style.display="table-row";
+    document.getElementById("hi3").style.display="table-row";
+    document.getElementById("hi4").style.display="table-row";
+    document.getElementById("hi5").style.display="table-row";    
+}
+
+function closeMenu(){
+    document.getElementById("openBtn").style.display="table-row";
+    document.getElementById("closeBtn").style.display="none";   
+    document.getElementById("hi1").style.display="none";   
+    document.getElementById("hi2").style.display="none";   
+    document.getElementById("hi3").style.display="none";   
+    document.getElementById("hi4").style.display="none";   
+    document.getElementById("hi5").style.display="none";   
 }
 </script>
 </body>
