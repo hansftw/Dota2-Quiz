@@ -1,12 +1,13 @@
 <html lang="en">
 <head>
     <style type="text/css">
+        * {
+            color: white;
+        }
         #quest{
-            color:white;
-            font-size: 20px;
+            font-size: 17px;
         }
         label {
-            color: white;
             font-size: 22px;
             text-align: right;
         }
@@ -19,12 +20,10 @@
             display: none;
         }
         #openBtn{
-            color: white;
             display: table-row;
             height: 1em;
         }
         #closeBtn{
-            color: white;
             display: none;
             height: 1em;
         }
@@ -37,8 +36,6 @@
             background-color: #111;
             border: solid;
             border-width:  1px;
-            border-color: white;
-            color: white;
             text-align: center;
             display: inline-block;
             font-size: 16px;
@@ -55,7 +52,6 @@
             width: 275px;
         }
         .correct {
-            color: white;
             height: 30px;
             font-size: 32px;
             text-align: center;
@@ -65,17 +61,16 @@
             background-color: #111;     
             margin-left: auto;
             margin-right: auto;
-            width: 17em;
+            width: 18em;
             padding-top: 6em;
         }        
         .question {
-            color: white;
             height: 30px;
             font-size: 20px;
             text-align: center;
             padding: 15px 10px;
         }
-    </style>
+</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,22 +155,16 @@ function go(){
     const comp = [,[0,64],[0,63],[0,69],,,,,,,,,,,,,,,[66],,,,,,,,,,,,,,,,,,,,,,,,,,[43,22],,,,,,,,,[52,51],,,,,,[38],[59,-1],[38,6,4],,,,,,,,,,,,,[38,32,23],[32],[12,37,25],[33,25,6],[67,68],,,[26,19],[26,20],[26,21],[91,6],[86,87,34,4],[17],[37],[91,73,70,44],[130,91],[37,26,17],[36],[69,31,68],[76],[93,66],[28,76],[30,68,16],[96,69],[70,68],[30,73],[99,141],[30,27],,,,,[71,30,28,29],[106],,,,[78],[11,66,86],[72,64],[28,10],,[11,69],[35,123,129],[31,78],[78,11,70],[78,27],[65,8],[72,70],[30,25],,[90,72],[67,72],[126,8],[5,6],[72,70,71],[67,40,36],[35,130],[65,62],[62,9,33],[65],[63,41,12],[140,62],[10,23],[5,7,78,13],[157,31],[5,4],[28,24],[8,32,4],[182,33,5],[143,76],[157,151],[151,123],[123,157],[34,7,64],[154,66],[31,71],[28,23],[8,27],[152,31],[10,9],[154,176],[10,165],[29,24],[34,12],[29,25],[63,45],[17,19],[38,70],[98,129],,,[164,165,73],[73,37,4],[40,29,7],[23,25,16],[6,37,165],[170,27,16],,,[87,27],[84,162,86],[30,27],,[137,126],[151,41],,[38,16,36],,[182,40],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,];
     const btree = [0,4,5,6,7,8,9,10,11,12,13,16,17,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,40,41,43,44,45,51,52,59,62,63,64,65,66,67,68,69,70,71,72,73,76,78,84,86,87,90,91,93,96,98,99,106,123,126,129,130,137,140,141,143,151,152,154,157,162,164,165,170,176,182];
     const built = [[1,2,3],,,,[61,85,140,142,167],[128,138,140,143],[61,77,84,128,170],[138,148,168],[121,127,142,152],[133,154],[114,137,154,156],[112,116,119],[76,135,158],[138],,,[96,169,171,181],[86,90,161],,[81,161],[82],[83],[44],[74,137,151,169],[141,157],[76,77,123,159,169],[81,82,83,90],[101,120,152,171,174,176],[95,106,114,141,151],[106,157,159,168],[96,99,101,106,123,176],[92,118,139,150,153],[74,75,142],[77,133,143],[85,148,158],[117,131],[91,130,181],[76,87,90,167,170],[59,61,74,162,181],,[130,168,183],[135,179],,[44],[88],[160],,,,,,[53],[53],,,,,,,[60],,,[132,133,136],[2,135,160],[1,113,148],[121,132,134],[18,94,112,149],[78,126,130],[78,92,96,98],[3,92,97,116],[88,98,119,122,129,162],[106,129,150],[113,122,125,126,129],[88,99,166,167],,,[93,95,144],,[111,118,119,120,138],,,,,,[175],,[85,112,175],[85,174],,,[125],[84,88,89],,[94],,,[97],,[163],[100],,,,,,,[107],,,,,,,,,,,,,,,,,[117,146,147],,,[127,178],,,[117,163],[89,131],,,,,,,[178],,,[136],[100],,[144],,,,,,,,[145,146,179],[153],,[149,155],,,[139,145,147],,,,,[175],,[166],[156,166,170],,,,,[171],,,,,,[155],,,,,,[143,183],,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,];
-    const nDisc = ['assive: Aquila Aura: Grants 1.25 mana regeneration and 2 armor to nearby allies. Radius: 1200 Toggle: Aura: Deactivate to stop affecting non-hero units.<br> +3 Strength<br> +9 Agility<br> +3 Intelligence<br> +7 Damage',"+1.25 Mana Regeneration<br> +75 Cast Range","Passive: Magic Amp: Reduces magic resistance of the attacked enemy by 15%.<br> +100 Attack Range <font color='#7d7d7d'>(Ranged Only)</font><br> +15 Attack Speed","Passive: Cooldown Reduction: Reduces the cooldown time of all spells and items by 12%<br> +9 HP Regeneration","+GPM BONUS<br> +200 Mana<br> -<font color='#e03e2e'>Attack Damage</font>","Active: Force: Dispels the user and pushes them 750 units in the direction they are facing. Passive: Speed Unlock: Completely removes the speed limit for the wearer Movement speed bonuses from multiple pairs of boots do not stack.<br> +115 Movement Speed<br> +30 HP Regeneration","Passive: Greater Corruption: Your attacks reduce the target's armor by -10 for 7.0 seconds.<br> +60 Damage","Active: Reveal: Reveal a target 800 area of the map for 6 seconds.<br> +350 Cast Range<br> +Vision Bonus<br> +10 Mana Regeneration","Increases all outgoing spell damage and debuff duration.<br> +25% Debuff Duration<br> +15% Spell Damage","Passive: Echo Shield: Block and reflect most targeted spells back to their caster once every 8.0 seconds.<br> +16 All Attributes","Use: Plant Tree: Targets the ground to plant a happy little tree that lasts for 20 seconds. Range: 800<br> +6 All Attributes","Increases both non-primary attributes.<br> +SECONDARY STATS","Passive: Silence Strike: The next attack silences the hit enemy for 1.75 seconds.<br> +Magic Attack Damage<br> +Attack Speed","Passive: Cooldown Reduction: Reduces the cooldown time of all spells and items by 18%.<br> +6 All Attributes<br> +4 Mana Regeneration","Passive: Critical Strike: Empowers your next attack, causing it to be a critical strike dealing 130% damage.<br> +26 Damage","Active: Flicker: Dispells debuffs and blinks you in a random forward direction for a random distance between 200 and 600. Does not get disabled on incoming damage.<br> +35 Movement Speed","Passive: Prescient Aura: Lowers Scan cooldown by 50% . Increases attack and cast range of allies in a 1200 unit radius.<br> %SCAN COOLDOWN REDUCTION:<br> AURA BONUS ATTACK RANGE:<br> AURA BONUS CAST RANGE:","Active: Scurry: Grants you 22% bonus movement speed and free pathing for 3 seconds. Walking over trees causes them to be destroyed.Movement speed bonuses from multiple pairs of boots do not stack.<br> +65 Movement Speed<br> +Turn Rate","+Main Vambrace Attribute<br> +Other Attributes<br> Also provides one of the following, based on the Vambrace's main attribute: <font color='#ec3d06'>Strength:</font> +10 Magic Resistance <font color='#3ed038'>Agility:</font> +10 Attack Speed <font color='#00d9ec'>Intelligence:</font> +6 Spell Amp","Passive: Water Regen: Provides you with 10 HP regen and 5 mana regen while in the river.<br> +5 All Attributes","+50 Attack Range <font color='#7d7d7d'>(Melee Only)</font><br> +14 Damage<br> +3 Armor","Active: Dig: Channel for 1 second. Can find a Bounty Rune, a Flask, an Enchanted Mango, or an enemy Kobold.<br> +100 Health","+25% Magic Resistance<br> +8% Spell Damage<br> -<font color='#e03e2e'>Armor</font>","Passive: Afterburn: Causes attacks to burn the enemy, dealing 18 damage per second for 3 seconds. Affects buildings.<br> +5 Armor<br> +5 HP Regeneration","Active: Life Essence: Increases your current and max health by 400 for 15 seconds.<br> +2.5 Mana Regeneration<br> +6 Intelligence","Passive: Certain Strike: Empowers your next attack with 300 bonus magical damage and True Strike. <font color='#7d7d7d'>Ranged Attackers</font> have +400 bonus range for the attack.","Active: Solitary Disguise: Casts Smoke of Deceit on yourself only.<br> +24 Agility<br> +25 Movement Speed","Active: Create Illusion: Creates an image under your control. Passive: Illusion Mastery: Increases outgoing damage of all units and illusions controlled by the hero by 6%.<br> IMAGE DURATION:<br> %IMAGE DAMAGE:<br> %IMAGE DAMAGE TAKEN:<br> +14 Agility<br> +14 Strength","+75 Primary Attribute","Passive: Knockback: Knocks back enemies 50 distance and deals 50 pure damage with every attack.<br> +250 Attack Range <font color='#7d7d7d'>(Ranged Only)</font>","Active: Greater Demonic Summoning: Summon 2 sets of Level 3 Necronomicon Units that last 75 seconds. Units have 100% more health and 75% more damage.<br> +30 Intelligence<br> +30 Strength","Active: Fallen Sky: Transform into a meteor that strikes down at the target area after .5 seconds in a 315 AoE, stunning enemies for 2.0 seconds and dealing impact damage. Continues to deal damage every 1.0 seconds to enemy units and buildings for 6 seconds.<BR><BR>Building Impact Damage: 75 <BR>Building Over Time Damage: 50 <BR><BR>Non-Building Impact Damage: 150 <BR>Non-Building Over Time Damage: 90<BR><BR> Range: 1600<br> +20 Strength<br> +20 Intelligence<br> +15.0 HP Regeneration<br> +10.0 Mana Regeneration","Active: Dig: Channel for 1 second. Always finds a Bounty Rune!<br> +150 Attack Speed","Active: Reset Cooldowns: Reset the cooldown on all items (except Refresher Orb).<br> +25 Armor","+200 Mana<br> +20 Movement Speed","+20 Damage<br> +Lifesteal<br> +Spell Lifesteal<br> Passive: Greater Healing: Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by 14.","+20 Strength<br> Active: Lesser Avatar: Grants Spell Immunity for 2 seconds.","Passive: Impeding Corruption: Attacks reduce the target's armor and movement speed. Slow amount varies based on whether the wearer is melee or ranged.<br> ARMOR REDUCTION:<br> %SLOW (MELEE):<br> %SLOW (RANGE):<br> DURATION:","+50 Attack Speed<br> +5 Armor<br> %BONUS BUILDING DAMAGE:","Active: Replenish Mana: Restores 75 mana to all nearby allies. Radius: 1200<br> +2 Armor<br> +10 Intelligence","+Base Attack Damage<br> +16% Magic Resistance<br> +12% Status Resistance","Passive: Everytime you are attacked, you return 30 damage to heroes and 20 damage to creeps.<br> +5 HP Regeneration","+26 Attack Speed<br> +16% Evasion<br> +7% Movement Speed","Passive: Burns enemy units for 45 damage per second. Illusions deal 30 damage per second. Radius: 375<br> +4 Armor<br> +10% Magic Resistance","+20% Magic Resistance<br> +20% Evasion<br> Active: Cloak: Causes you to become invisible for 6 seconds.","Passive: Lifesteal: Heals the attacker for 7% of attack damage dealt.<br> +7 Primary Attribute","+45 Damage<br> +100 Attack Range <font color='#7d7d7d'>(Melee Only)</font><br> Passive: Maim: Each attack has a 25 chance to reduce enemy hero movement speed by 20 and attack speed by 60 for 3 seconds.","Active: Whip: Grants 18% movement speed when cast on allies, and slows by 18% when cast on enemies. Lasts 4 seconds.<br> +3 HP Regeneration<br> +2.5 Mana Regeneration","Active: Psychic Push: Pushes the target enemy unit away from you 400 distance.<br> +Intelligence<br> +100 Cast Range","Passive: Ceremonial Aura: Lowers enemy Status Resistance by 10% and Magic Resistance by 10%. Radius: 1200<br> +350 Mana","Passive: Quicksilver: Grants you a bonus 4% movement speed and 20 attack speed anytime one of your abilities are on cooldown.<br> +4% Movement Speed<br> +10 Attack Speed<br> +Attack Projectile Speed<br> +Attack Animation Speed","Active: Shadows: Target an enemy, ally or self. Causes the target to become untargetable but also silenced, muted and disarmed for 3 seconds. Applies a Basic Dispel.<br> +12 All Attributes<br> +Night Vision","Passive: Giant's Foot: Can path over any terrain and deals 100% of your strength per second to units you are standing ontop of.<br> +Strength<br> +60 Movement Speed<br> +Model Scale","Active: Cyclones your hero for 0.75 seconds. Passive: Zaps an enemy within 700 range, dealing 200 damage and a 40% slow for 0.3 seconds. Strikes every 3 seconds.<br> +4 Mana Regeneration","+100 Health<br> +5% Spell Damage<br> +5% Manacost Reduction"];
+    const nDisc = ['Passive: Aquila Aura: Grants 1.25 mana regeneration and 2 armor to nearby allies. Radius: 1200 Toggle: Aura: Deactivate to stop affecting non-hero units.<br> +3 Strength<br> +9 Agility<br> +3 Intelligence<br> +7 Damage',"+1.25 Mana Regeneration<br> +75 Cast Range","Passive: Magic Amp: Reduces magic resistance of the attacked enemy by 15%.<br> +100 Attack Range <font color='#7d7d7d'>(Ranged Only)</font><br> +15 Attack Speed","Passive: Cooldown Reduction: Reduces the cooldown time of all spells and items by 12%<br> +9 HP Regeneration","+GPM BONUS<br> +200 Mana<br> -<font color='#e03e2e'>Attack Damage</font>","Active: Force: Dispels the user and pushes them 750 units in the direction they are facing. Passive: Speed Unlock: Completely removes the speed limit for the wearer Movement speed bonuses from multiple pairs of boots do not stack.<br> +115 Movement Speed<br> +30 HP Regeneration","Passive: Greater Corruption: Your attacks reduce the target's armor by -10 for 7.0 seconds.<br> +60 Damage","Active: Reveal: Reveal a target 800 area of the map for 6 seconds.<br> +350 Cast Range<br> +Vision Bonus<br> +10 Mana Regeneration","Increases all outgoing spell damage and debuff duration.<br> +25% Debuff Duration<br> +15% Spell Damage","Passive: Echo Shield: Block and reflect most targeted spells back to their caster once every 8.0 seconds.<br> +16 All Attributes","Use: Plant Tree: Targets the ground to plant a happy little tree that lasts for 20 seconds. Range: 800<br> +6 All Attributes","Increases both non-primary attributes.<br> +SECONDARY STATS","Passive: Silence Strike: The next attack silences the hit enemy for 1.75 seconds.<br> +Magic Attack Damage<br> +Attack Speed","Passive: Cooldown Reduction: Reduces the cooldown time of all spells and items by 18%.<br> +6 All Attributes<br> +4 Mana Regeneration","Passive: Critical Strike: Empowers your next attack, causing it to be a critical strike dealing 130% damage.<br> +26 Damage","Active: Flicker: Dispells debuffs and blinks you in a random forward direction for a random distance between 200 and 600. Does not get disabled on incoming damage.<br> +35 Movement Speed","Passive: Prescient Aura: Lowers Scan cooldown by 50% . Increases attack and cast range of allies in a 1200 unit radius.<br> %SCAN COOLDOWN REDUCTION:<br> AURA BONUS ATTACK RANGE:<br> AURA BONUS CAST RANGE:","Active: Scurry: Grants you 22% bonus movement speed and free pathing for 3 seconds. Walking over trees causes them to be destroyed.Movement speed bonuses from multiple pairs of boots do not stack.<br> +65 Movement Speed<br> +Turn Rate","+Main Vambrace Attribute<br> +Other Attributes<br> Also provides one of the following, based on the Vambrace's main attribute: <font color='#ec3d06'>Strength:</font> +10 Magic Resistance <font color='#3ed038'>Agility:</font> +10 Attack Speed <font color='#00d9ec'>Intelligence:</font> +6 Spell Amp","Passive: Water Regen: Provides you with 10 HP regen and 5 mana regen while in the river.<br> +5 All Attributes","+50 Attack Range <font color='#7d7d7d'>(Melee Only)</font><br> +14 Damage<br> +3 Armor","Active: Dig: Channel for 1 second. Can find a Bounty Rune, a Flask, an Enchanted Mango, or an enemy Kobold.<br> +100 Health","+25% Magic Resistance<br> +8% Spell Damage<br> -<font color='#e03e2e'>Armor</font>","Passive: Afterburn: Causes attacks to burn the enemy, dealing 18 damage per second for 3 seconds. Affects buildings.<br> +5 Armor<br> +5 HP Regeneration","Active: Life Essence: Increases your current and max health by 400 for 15 seconds.<br> +2.5 Mana Regeneration<br> +6 Intelligence","Passive: Certain Strike: Empowers your next attack with 300 bonus magical damage and True Strike. <font color='#7d7d7d'>Ranged Attackers</font> have +400 bonus range for the attack.","Active: Solitary Disguise: Casts Smoke of Deceit on yourself only.<br> +24 Agility<br> +25 Movement Speed","Active: Create Illusion: Creates an image under your control. Passive: Illusion Mastery: Increases outgoing damage of all units and illusions controlled by the hero by 6%.<br> IMAGE DURATION:<br> %IMAGE DAMAGE:<br> %IMAGE DAMAGE TAKEN:<br> +14 Agility<br> +14 Strength","+75 Primary Attribute","Passive: Knockback: Knocks back enemies 50 distance and deals 50 pure damage with every attack.<br> +250 Attack Range <font color='#7d7d7d'>(Ranged Only)</font>","Active: Greater Demonic Summoning: Summon 2 sets of Level 3 Necronomicon Units that last 75 seconds. Units have 100% more health and 75% more damage.<br> +30 Intelligence<br> +30 Strength","Active: Fallen Sky: Transform into a meteor that strikes down at the target area after .5 seconds in a 315 AoE, stunning enemies for 2.0 seconds and dealing impact damage. Continues to deal damage every 1.0 seconds to enemy units and buildings for 6 seconds.<BR><BR>Building Impact Damage: 75 <BR>Building Over Time Damage: 50 <BR><BR>Non-Building Impact Damage: 150 <BR>Non-Building Over Time Damage: 90<BR><BR> Range: 1600<br> +20 Strength<br> +20 Intelligence<br> +15.0 HP Regeneration<br> +10.0 Mana Regeneration","Active: Dig: Channel for 1 second. Always finds a Bounty Rune!<br> +150 Attack Speed","Active: Reset Cooldowns: Reset the cooldown on all items (except Refresher Orb).<br> +25 Armor","+200 Mana<br> +20 Movement Speed","+20 Damage<br> +Lifesteal<br> +Spell Lifesteal<br> Passive: Greater Healing: Amplifies the wearer's Regeneration, Healing, Lifesteal and Spell Lifesteal by 14.","+20 Strength<br> Active: Lesser Avatar: Grants Spell Immunity for 2 seconds.","Passive: Impeding Corruption: Attacks reduce the target's armor and movement speed. Slow amount varies based on whether the wearer is melee or ranged.<br> ARMOR REDUCTION:<br> %SLOW (MELEE):<br> %SLOW (RANGE):<br> DURATION:","+50 Attack Speed<br> +5 Armor<br> %BONUS BUILDING DAMAGE:","Active: Replenish Mana: Restores 75 mana to all nearby allies. Radius: 1200<br> +2 Armor<br> +10 Intelligence","+Base Attack Damage<br> +16% Magic Resistance<br> +12% Status Resistance","Passive: Everytime you are attacked, you return 30 damage to heroes and 20 damage to creeps.<br> +5 HP Regeneration","+26 Attack Speed<br> +16% Evasion<br> +7% Movement Speed","Passive: Burns enemy units for 45 damage per second. Illusions deal 30 damage per second. Radius: 375<br> +4 Armor<br> +10% Magic Resistance","+20% Magic Resistance<br> +20% Evasion<br> Active: Cloak: Causes you to become invisible for 6 seconds.","Passive: Lifesteal: Heals the attacker for 7% of attack damage dealt.<br> +7 Primary Attribute","+45 Damage<br> +100 Attack Range <font color='#7d7d7d'>(Melee Only)</font><br> Passive: Maim: Each attack has a 25 chance to reduce enemy hero movement speed by 20 and attack speed by 60 for 3 seconds.","Active: Whip: Grants 18% movement speed when cast on allies, and slows by 18% when cast on enemies. Lasts 4 seconds.<br> +3 HP Regeneration<br> +2.5 Mana Regeneration","Active: Psychic Push: Pushes the target enemy unit away from you 400 distance.<br> +Intelligence<br> +100 Cast Range","Passive: Ceremonial Aura: Lowers enemy Status Resistance by 10% and Magic Resistance by 10%. Radius: 1200<br> +350 Mana","Passive: Quicksilver: Grants you a bonus 4% movement speed and 20 attack speed anytime one of your abilities are on cooldown.<br> +4% Movement Speed<br> +10 Attack Speed<br> +Attack Projectile Speed<br> +Attack Animation Speed","Active: Shadows: Target an enemy, ally or self. Causes the target to become untargetable but also silenced, muted and disarmed for 3 seconds. Applies a Basic Dispel.<br> +12 All Attributes<br> +Night Vision","Passive: Giant's Foot: Can path over any terrain and deals 100% of your strength per second to units you are standing ontop of.<br> +Strength<br> +60 Movement Speed<br> +Model Scale","Active: Cyclones your hero for 0.75 seconds. Passive: Zaps an enemy within 700 range, dealing 200 damage and a 40% slow for 0.3 seconds. Strikes every 3 seconds.<br> +4 Mana Regeneration","+100 Health<br> +5% Spell Damage<br> +5% Manacost Reduction"];
 
-    document.getElementById("bu1").style.borderColor="white";
-    document.getElementById("bu2").style.borderColor="white";
-    document.getElementById("bu3").style.borderColor="white";
-    document.getElementById("bu4").style.borderColor="white";
+    for (let i = 1; i < 5; i++)
+        document.getElementById("bu" + i).style.borderColor="white";
 
     document.getElementById("quest").innerHTML = '<img class="pic" id="img" src="">';           
 
-    var check = [];
-    if (document.getElementById("cb1").checked) check.push(0);    
-    if (document.getElementById("cb2").checked) check.push(1);
-    if (document.getElementById("cb3").checked) check.push(3);
-    if (document.getElementById("cb4").checked) check.push(2);
-    if (document.getElementById("cb5").checked) check.push(4);
-    if (document.getElementById("cb6").checked) check.push(5);
+    var check = [];    
+    for (let i = 1; i < 7; i++)
+        if (document.getElementById("cb" + i).checked) check.push(i - 1);    
 
     mode = -1;
     while (!check.includes(mode))
@@ -183,8 +172,8 @@ function go(){
         
     var length  = (mode === 0) ? hero_names.length
                 : (mode === 1) ? quizItems.length
-                : (mode === 2) ? ctree.length
-                : (mode === 3) ? neutrals.length                
+                : (mode === 2) ? neutrals.length
+                : (mode === 3) ? ctree.length                
                 : (mode === 4) ? btree.length                
                 : neutrals.length;
 
@@ -193,6 +182,12 @@ function go(){
     if (mode === 0) {
         document.getElementById("t3").innerHTML = "Hero name?";
         document.getElementById("img").src = "./images/heroes/" + hero_id_names[index] + "_png.png";
+
+        var filter = Math.floor(Math.random() * 10); 
+        if (filter === 0)
+            document.getElementById("img").style = "filter: grayscale(100%);";
+        else if (filter === 1)
+            document.getElementById("img").style = "filter: blur(5px);";
         answer = hero_names[index];
     }
     else if (mode === 1){        
@@ -200,13 +195,13 @@ function go(){
         document.getElementById("img").src = "./images/items/" + item_id_names[quizItems[index]] + "_png.png";
         answer = item_names[quizItems[index]];
     }
-    else if (mode === 2){
+    else if (mode === 3){
         document.getElementById("t3").innerHTML = "Builds to?";
         var rng = Math.floor(Math.random() * comp[ctree[index]].length)
         document.getElementById("img").src = "./images/items/" + item_id_names[comp[ctree[index]][rng]] + "_png.png";
         answer = item_names[ctree[index]];
     }    
-    else if (mode === 3){        
+    else if (mode === 2){        
         document.getElementById("t3").innerHTML = "Neutral name?";
         document.getElementById("img").src = "./images/items/" + item_id_names[neutrals[index]] + "_png.png";
         answer = item_names[neutrals[index]];
@@ -229,9 +224,9 @@ function go(){
         while (earlyOptions.includes(newOption)){
             var rng = Math.floor(Math.random() * length);
             newOption = (mode === 0) ? hero_names[rng]
-                      : (mode === 3 || mode === 5) ? item_names[neutrals[rng]]
+                      : (mode === 2 || mode === 5) ? item_names[neutrals[rng]]
                       : item_names[quizItems[rng]];            
-            if ((mode === 2 || mode === 4) && comp[ctree[index]].includes(rng))
+            if ((mode === 3 || mode === 4) && comp[ctree[index]].includes(rng))
                 newOption == answer;   
         }
         earlyOptions.push(newOption)
@@ -255,7 +250,7 @@ async function b1(cid)
         document.getElementById("t1").innerHTML = "correct";
         document.getElementById("t1").style.color="green";
         document.getElementById(cid).style.borderColor="green";
-        await sleep(750);               
+        await sleep(700);               
         document.getElementById("t1").innerHTML = "";
         go();
     }
@@ -263,7 +258,7 @@ async function b1(cid)
         document.getElementById("t1").innerHTML = "wrong";
         document.getElementById("t1").style.color="red";
         document.getElementById(cid).style.borderColor="red";
-        await sleep(750);               
+        await sleep(700);               
             document.getElementById("t1").innerHTML = "";
     }
 }
@@ -275,23 +270,15 @@ function sleep(ms) {
 function openMenu(){
     document.getElementById("openBtn").style.display="none";    
     document.getElementById("closeBtn").style.display="table-row";
-    document.getElementById("hi1").style.display="table-row";
-    document.getElementById("hi2").style.display="table-row";
-    document.getElementById("hi3").style.display="table-row";
-    document.getElementById("hi4").style.display="table-row";
-    document.getElementById("hi5").style.display="table-row";    
-    document.getElementById("hi6").style.display="table-row";    
+    for (let i = 1; i < 7; i++)
+        document.getElementById("hi" + i).style.display="table-row";
 }
 
 function closeMenu(){
     document.getElementById("openBtn").style.display="table-row";
     document.getElementById("closeBtn").style.display="none";   
-    document.getElementById("hi1").style.display="none";   
-    document.getElementById("hi2").style.display="none";   
-    document.getElementById("hi3").style.display="none";   
-    document.getElementById("hi4").style.display="none";   
-    document.getElementById("hi5").style.display="none";   
-    document.getElementById("hi6").style.display="none";   
+    for (let i = 1; i < 7; i++)
+    document.getElementById("hi" + i).style.display="none";   
 }
 </script>
 </body>
